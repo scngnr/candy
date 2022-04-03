@@ -446,7 +446,6 @@ class XmlController extends Controller
                           try {
                             // $databaseImages[$ac] = "products\/". $xml[$xmlKeyName][$j][$sku] . "-" . $ac .              ".jpg";
 
-                            if(array_key_exists($resimPath, $xml[$xmlKeyName][$j])){
 
                               $resimPath = $images[$ac];
                               $sku = $databaseXmlArrayKeyList['sku'];
@@ -457,9 +456,8 @@ class XmlController extends Controller
                               Storage::put('/product/'.$xml[$xmlKeyName][$j][$sku] . '-' . $ac . '-150x150' . '.jpg',  $contents);
                               Storage::put('/product/'.$xml[$xmlKeyName][$j][$sku] . '-' . $ac . '-400x400' . '.jpg',  $contents);
                               Storage::put('/product/'.$xml[$xmlKeyName][$j][$sku] . '-' . $ac . '-800x800' . '.jpg',  $contents);
-                            }
 
-                            $this->databaseImages[$ac] = "product\/{$xml[$xmlKeyName][$j][$sku]}-{$ac}.jpg";
+                            $this->databaseImages[$ac] = "product/{$xml[$xmlKeyName][$j][$sku]}-{$ac}.jpg";
                           } catch (\Exception $e) {
 
                           }

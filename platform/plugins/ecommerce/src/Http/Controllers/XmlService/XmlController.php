@@ -446,15 +446,18 @@ class XmlController extends Controller
                           try {
                             // $databaseImages[$ac] = "products\/". $xml[$xmlKeyName][$j][$sku] . "-" . $ac .              ".jpg";
 
-                            $resimPath = $images[$ac];
-                            $sku = $databaseXmlArrayKeyList['sku'];
-                            $url = $xml[$xmlKeyName][$j][$resimPath];
-                            $contents = file_get_contents($url);
+                            if(array_key_exists($resimPath, $xml[$xmlKeyName][$j])){
 
-                            Storage::put('/product/'.$xml[$xmlKeyName][$j][$sku] . '-' . $ac .              '.jpg',  $contents);
-                            Storage::put('/product/'.$xml[$xmlKeyName][$j][$sku] . '-' . $ac . '-150x150' . '.jpg',  $contents);
-                            Storage::put('/product/'.$xml[$xmlKeyName][$j][$sku] . '-' . $ac . '-400x400' . '.jpg',  $contents);
-                            Storage::put('/product/'.$xml[$xmlKeyName][$j][$sku] . '-' . $ac . '-800x800' . '.jpg',  $contents);
+                              $resimPath = $images[$ac];
+                              $sku = $databaseXmlArrayKeyList['sku'];
+                              $url = $xml[$xmlKeyName][$j][$resimPath];
+                              $contents = file_get_contents($url);
+
+                              Storage::put('/product/'.$xml[$xmlKeyName][$j][$sku] . '-' . $ac .              '.jpg',  $contents);
+                              Storage::put('/product/'.$xml[$xmlKeyName][$j][$sku] . '-' . $ac . '-150x150' . '.jpg',  $contents);
+                              Storage::put('/product/'.$xml[$xmlKeyName][$j][$sku] . '-' . $ac . '-400x400' . '.jpg',  $contents);
+                              Storage::put('/product/'.$xml[$xmlKeyName][$j][$sku] . '-' . $ac . '-800x800' . '.jpg',  $contents);
+                            }
 
                             $this->databaseImages[$ac] = "product\/{$xml[$xmlKeyName][$j][$sku]}-{$ac}.jpg";
                           } catch (\Exception $e) {

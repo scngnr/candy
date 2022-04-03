@@ -1,12 +1,4 @@
-/node_modules
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.DS_Store
-Thumbs.db
-/bower_components
-.env
+
 .env.backup
 /.idea
 /.vscode
@@ -24,8 +16,6 @@ __MACOSX
 /.phpintel
 /.php_cs.cache
 
-public/vendor/core
-
 _ide_helper.php
 package-lock.json
 yarn.lock
@@ -33,14 +23,8 @@ yarn.lock
 
 public/mix-manifest.json
 
-public/themes
-public/docs
-resources/docs
-
 .phpunit.result.cache
 /storage/.license
 /storage/fonts
 
 /log
-
-storage/framework/laravel-excel/
